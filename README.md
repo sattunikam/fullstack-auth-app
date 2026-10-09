@@ -49,11 +49,13 @@ auth-app/
 ## 🚀 Run Locally
 
 **1. Clone the repo**
+```bash
 git clone https://github.com/sattunikam/fullstack-auth-app.git
 cd fullstack-auth-app
 ```
 
 **2. Backend**
+```bash
 cd backend
 npm install
 ```
@@ -64,10 +66,13 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
 ```
+Then start the server:
+```bash
 npm run dev
 ```
 
 **3. Frontend**
+```bash
 cd frontend
 npm install
 npm run dev
