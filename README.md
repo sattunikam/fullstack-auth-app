@@ -10,6 +10,7 @@ A full-stack authentication system built with React, Node.js, Express.js and Mon
 - `verify` API to check login status on page refresh
 - Logout that clears the cookie
 - Protected routes in React that redirect unauthenticated users to login
+- **Full CRUD functionality** for personal user notes/items (Create, Read, Update, Delete)
 - Responsive dark UI with Tailwind CSS
 
 ## 🛠️ Tech Stack
@@ -20,6 +21,7 @@ A full-stack authentication system built with React, Node.js, Express.js and Mon
 
 ## 📡 API Endpoints
 
+### Authentication
 | Method | Endpoint | Description | Protected |
 |--------|----------|-------------|-----------|
 | POST | `/api/auth/signup` | Create a new user | No |
@@ -27,23 +29,32 @@ A full-stack authentication system built with React, Node.js, Express.js and Mon
 | GET | `/api/auth/verify` | Get logged-in user | Yes |
 | POST | `/api/auth/logout` | Clear cookie | No |
 
+### Notes (CRUD)
+| Method | Endpoint | Description | Protected |
+|--------|----------|-------------|-----------|
+| GET | `/api/notes` | Get all notes for logged-in user | Yes |
+| GET | `/api/notes/:id` | Get single note by ID | Yes |
+| POST | `/api/notes` | Create a new note | Yes |
+| PUT | `/api/notes/:id` | Update an existing note | Yes |
+| DELETE | `/api/notes/:id` | Delete a note | Yes |
+
 ## 📁 Folder Structure
 
 ```
 auth-app/
 ├── backend/
 │   ├── config/        # database connection
-│   ├── controllers/   # signup, login, verify, logout logic
+│   ├── controllers/   # auth & note CRUD logic
 │   ├── middleware/    # protect middleware
-│   ├── models/        # User schema
-│   ├── routes/        # API routes
+│   ├── models/        # User & Note schemas
+│   ├── routes/        # auth & note API routes
 │   └── index.js
 └── frontend/
     └── src/
         ├── api/          # axios instance
         ├── components/   # Navbar, ProtectedRoute
         ├── context/      # AuthContext
-        └── pages/        # Login, Signup, Dashboard
+        └── pages/        # Login, Signup, Dashboard (with CRUD UI)
 ```
 
 ## 🚀 Run Locally
