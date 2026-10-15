@@ -20,60 +20,61 @@ function Login() {
       await login(email, password)
       navigate("/dashboard")
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong")
+      setError(err.response?.data?.message || "Invalid credentials")
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-900 via-indigo-950 to-slate-900 px-4">
-      <div className="w-full max-w-md bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 shadow-2xl">
-        <h1 className="text-3xl font-bold text-white text-center">Welcome back</h1>
-        <p className="text-slate-300 text-center mt-2 mb-6">Login to your account</p>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
 
         {error && (
-          <div className="bg-red-500/20 border border-red-500/50 text-red-200 text-sm rounded-lg p-3 mb-4">
+          <div className="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm border border-red-200">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm text-slate-200 mb-1">Email</label>
+            <label className="block text-sm text-gray-600 mb-1">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter email"
+              required
+              className="w-full border border-gray-300 p-2.5 rounded focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div>
-            <label className="block text-sm text-slate-200 mb-1">Password</label>
+            <label className="block text-sm text-gray-600 mb-1">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Your password"
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter password"
+              required
+              className="w-full border border-gray-300 p-2.5 rounded focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition disabled:opacity-50"
           >
-            {loading ? "Please wait..." : "Login"}
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        <p className="text-slate-300 text-sm text-center mt-6">
-          New here?{" "}
-          <Link to="/signup" className="text-indigo-400 hover:text-indigo-300 font-medium">
-            Create an account
+        <p className="text-center text-sm text-gray-600 mt-4">
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-blue-600 hover:underline">
+            Sign up
           </Link>
         </p>
       </div>

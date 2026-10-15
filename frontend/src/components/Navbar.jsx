@@ -11,14 +11,14 @@ function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-white/10 backdrop-blur-lg border-b border-white/20">
-      <h1 className="text-xl font-bold text-white">🔐 AuthApp</h1>
+    <nav className="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center shadow-sm">
+      <h1 className="text-xl font-bold text-blue-600">Auth & Notes App</h1>
 
       <div className="flex items-center gap-4">
-        <span className="text-slate-200 text-sm">Hi, {user?.name}</span>
+        <span className="text-gray-700 text-sm">Welcome, {user?.name}</span>
         <button
           onClick={handleLogout}
-          className="px-4 py-2 rounded-lg bg-red-500 hover:bg-red-400 text-white text-sm font-semibold transition"
+          className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded text-sm font-medium transition"
         >
           Logout
         </button>
